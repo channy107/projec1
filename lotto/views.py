@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from .models import *
 
 
 def index(request):
-    return render(request, 'lotto/index.html', {})
+    lottos = GuessNumbers.objects.all()
+    return render(request, 'lotto/index.html', {'lottos':lottos})
