@@ -8,3 +8,17 @@ class GuessNumbers(models.Model):
     text = models.CharField(max_length=255)
     num_lotto = models.IntegerField(default=5)
     update_date = models.DateTimeField()
+
+    def __str__(self):
+        return '%s %s' % (self.name, self.text)
+
+    def generate(self):
+        self.lottos = ""
+        origin = list(range(1, 46))
+        for _ in range(0, self.num_lotto):
+            random.shuffle(origin)
+            guess = origin[:6]
+            guess.sort()
+        self.lottos += str(guess) + '\n'
+        self.update_date = timezone.now()
+        self.save()
