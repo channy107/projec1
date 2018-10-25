@@ -36,3 +36,16 @@ var marker = new daum.maps.Marker({
 marker.setMap(map);
 
 </script>
+
+<div id='caulyDisplay'>
+	<script src='//image.cauly.co.kr/websdk/common/lasted/ads.min.js'></script>
+	<script>
+      new CaulyAds({
+        app_code:'95cR6M0t',
+        placement:1,
+        displayid:'caulyDisplay',
+        passback:function(){},
+        success:function(){}
+      });
+   </script>
+</div>
