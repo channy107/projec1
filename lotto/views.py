@@ -5,7 +5,9 @@ from .forms import *
 
 def index(request):
     lottos = GuessNumbers.objects.all()
-    return render(request, 'lotto/index.html', {'lottos':lottos})
+    location = Location.objects.get(id=1)
+    return render(request, 'lotto/index.html', {'lottos':lottos
+                                                ,'location': location})
 
 def post(request):
     if request.method == 'GET':

@@ -1,6 +1,12 @@
 from django.db import models
 from django.utils import timezone
 import random
+
+class Location(models.Model):
+    lat = models.FloatField()
+    lng = models.FloatField()
+    name = models.CharField(max_length=30)
+
 class GuessNumbers(models.Model):
     name = models.CharField(max_length=24)
     lottos = models.CharField(max_length=255,
