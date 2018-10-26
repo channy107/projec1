@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 
@@ -68,4 +68,6 @@ def id_check(request):
         return HttpResponse('가입 가능')
     else:
         # 가입된 아이디가 있다
-        return HttpResponse('가입 불가')
+        res = {'id': id, 'msg':'가입불가'}
+        return JsonResponse(res)
+        # return HttpResponse('가입 불가')
