@@ -4,6 +4,9 @@
 
 <div class="page-header">
     <h1>My Lotto Page</h1>
+    {% if request.session.id %}
+        <h4>{{ request.session.id }}님 반갑습니다. </h4>>
+    {% endif %}
 </div>
 {% for lotto in lottos %}
 <div class="container lotto">
