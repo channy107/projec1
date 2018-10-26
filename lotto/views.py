@@ -29,8 +29,10 @@ def post(request):
 def detail(request):
     key = request.GET['lotto_num']
     lotto = GuessNumbers.objects.get(id=key)
-    return render(request, '', {})
+    return render(request, 'lotto/detail.html',
+                  {'lotto': lotto})
 # 다른 방식
 def detail2(request, num):
     lotto = GuessNumbers.objects.get(id=num)
-    return render(request, '', {})
+    return render(request, 'lotto/detail.html',
+                  {'lotto':lotto})
