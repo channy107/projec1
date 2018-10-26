@@ -71,3 +71,22 @@ def id_check(request):
         res = {'id': id, 'msg':'가입불가'}
         return JsonResponse(res)
         # return HttpResponse('가입 불가')
+
+def login(request):
+    if request.method == 'GET':
+
+        return render(request, 'lotto/login.html', {})
+    else:
+        id = request.POST['id']
+        pw = request.POST['pw']
+        try:
+            Member.objects.get(id=id, pw=pw)
+        except Member.DoesNotExist:
+            # 아이디 또는 비밀번호가 틀린경우
+            return redirect('login')
+
+        else:
+            # 정상 로그인
+            # 세션 값 저장 (로그인 시켜주는 것)
+            request.session['id'] = id
+            return redirect('lotto')

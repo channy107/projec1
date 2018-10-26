@@ -9,7 +9,8 @@ urlpatterns = [
     # 파라미터 방식
     path('detail', views.detail, name='detail'),
     path('form', views.post),
-    path('', views.index),
+    path('', views.index, name='lotto'),
     path('join', views.join, name='join'),
     path('id_check', views.id_check, name='id_check'),
+    path('login', views.login, name='login'),
 ]
