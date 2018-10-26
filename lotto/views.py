@@ -64,7 +64,8 @@ def id_check(request):
     except Member.DoesNotExist as e:
         pass
         # 가입된 아이디가 없음
-        return HttpResponse('가입 가능')
+        res = {'id': id, 'msg': '가입 가능'}
+        return JsonResponse(res)
     else:
         # 가입된 아이디가 있다
         res = {'id': id, 'msg':'가입불가'}

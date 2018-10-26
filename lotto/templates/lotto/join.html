@@ -17,7 +17,7 @@
         ct = $('input[name=csrfmiddlewaretoken]').val()
         $.ajax({
             // url: '/lotto/id_check',
-            url: '{% url 'join' %}',
+            url: '{% url 'id_check' %}',
             type: 'post',
             data: {'id':id,
             'csrfmiddlewaretoken' : ct
