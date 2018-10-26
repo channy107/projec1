@@ -56,7 +56,6 @@ def join(request):
         return render(request,
                       'lotto/join_result.html',
                       {'id':id, 'name':name})
-@csrf_exempt
 
 def id_check(request):
     id = request.POST['id']

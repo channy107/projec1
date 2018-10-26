@@ -14,10 +14,13 @@
     function id_check(){
 
         id = $('input[name=id]').val()
+        ct = $('input[name=csrfmiddlewaretoken]').val()
         $.ajax({
             url: '/lotto/id_check',
             type: 'post',
-            data: {'id':id},
+            data: {'id':id,
+            'csrfmiddlewaretoken' : ct
+            },
             success: function(res) {
                 alert(res.msg + res.id)
         }
