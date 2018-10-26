@@ -1,4 +1,7 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.views.decorators.csrf import csrf_exempt
+
 from .models import *
 from .forms import *
 
@@ -53,3 +56,16 @@ def join(request):
         return render(request,
                       'lotto/join_result.html',
                       {'id':id, 'name':name})
+@csrf_exempt
+
+def id_check(request):
+    id = request.POST['id']
+    try:
+        Member.objects.get(id=id)
+    except Member.DoesNotExist as e:
+        pass
+        # 가입된 아이디가 없음
+        return HttpResponse('가입 가능')
+    else:
+        # 가입된 아이디가 있다
+        return HttpResponse('가입 불가')

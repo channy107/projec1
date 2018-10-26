@@ -10,5 +10,6 @@ urlpatterns = [
     path('detail', views.detail),
     path('form', views.post),
     path('', views.index),
-    path('join', views.join)
+    path('join', views.join),
+    path('id_check', views.id_check),
 ]
