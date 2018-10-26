@@ -7,8 +7,18 @@
 </div>
 {% for lotto in lottos %}
 <div class="container lotto">
-    <h2>{{ lotto.name }}</h2>
-    <p>{{ lotto.update_date }}</p>
+    <h2>
+        <!--파라미터방식-->
+        <a href="detail?lotto_num={{lotto.id}}">
+        {{ lotto.name }}
+        </a>
+    </h2>
+    <p>
+        <!--파라미터말고 다른방식-->
+        <a href="detail/{{lotto.id}}">
+        {{ lotto.update_date }}
+        </a>
+    </p>
     <p>{{ lotto.lottos }}</p>
 </div>
 {% endfor %}

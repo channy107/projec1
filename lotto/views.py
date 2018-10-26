@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import *
 from .forms import *
 
-
+# shift + ctrl + -(+) : 숨기기
 def index(request):
     lottos = GuessNumbers.objects.all()
     location = Location.objects.get(id=1)
@@ -25,4 +25,12 @@ def post(request):
             # if form.is_valid():
             #     form.save()
 
-
+ # 파라미터 방식
+def detail(request):
+    key = request.GET['lotto_num']
+    lotto = GuessNumbers.objects.get(id=key)
+    return render(request, '', {})
+# 다른 방식
+def detail2(request, num):
+    lotto = GuessNumbers.objects.get(id=num)
+    return render(request, '', {})
